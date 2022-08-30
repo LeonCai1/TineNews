@@ -1,4 +1,4 @@
-#  innews: a Tinder-like News App 
+#  Tinnews: a Tinder-like News App 
 -Designed the Instagram Flavor News app based on Google Component Architectural **MVVM** Pattern
 
 -Implemented the bottom bar & page navigation using **JetPack** navigation component 
@@ -9,8 +9,8 @@
 
 -Integrated Retrofit and LiveData to pull the latest news data from a **RESTFUL endpoint**  (newsapi.org)
 
-## INSTALLAION
+### INSTALLAION
 
 
 
-## DEPENDENCIES
+### DEPENDENCIES
