@@ -14,8 +14,8 @@ import com.laioffer.tinnews.network.NewsApi;
 import com.laioffer.tinnews.network.RetrofitClient;
 
 import retrofit2.Call;
-import retrofit2.Response;
 import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -28,11 +28,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-        BottomNavigationView navView = findViewById(R.id.nav_view);
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.nav_host_fragment);
+        BottomNavigationView navView = findViewById(R.id.nav_view);
+
         navController = navHostFragment.getNavController();
         // click on tab on BottomNavView can navigate
         NavigationUI.setupWithNavController(navView, navController);
