@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Transformations;
 import androidx.lifecycle.ViewModel;
 
+import com.laioffer.tinnews.model.Article;
 import com.laioffer.tinnews.model.NewsResponse;
 import com.laioffer.tinnews.repository.NewsRepository;
 //data sore
@@ -25,5 +26,8 @@ public class HomeViewModel extends ViewModel {
     public LiveData<NewsResponse> getTopHeadlines() {
         // country input livedata -> switch/translate -> top headline livedata
         return Transformations.switchMap(countryInput, repository::getTopHeadlines);
+    }
+    public void setFavoriteArticleInput(Article article){
+        repository.favoriteArticle(article);
     }
 }

@@ -27,6 +27,15 @@ public class SearchNewsAdapter extends RecyclerView.Adapter<SearchNewsAdapter.Se
         articles.addAll(newsList);
         notifyDataSetChanged();
     }
+    interface ItemCallback {
+        void onOpenDetails(Article article);
+    }
+
+    private ItemCallback itemCallback;
+
+    public void setItemCallback(ItemCallback itemCallback) {
+        this.itemCallback = itemCallback;
+    }
 
     @NonNull
     @Override
@@ -43,7 +52,9 @@ public class SearchNewsAdapter extends RecyclerView.Adapter<SearchNewsAdapter.Se
         if(article.urlToImage!=null){
             Picasso.get().load(article.urlToImage).resize(200, 200)
                     .into(holder.itemImageView);
+            holder.itemView.setOnClickListener(v -> itemCallback.onOpenDetails(article));
         }
+
     }
 
     @Override

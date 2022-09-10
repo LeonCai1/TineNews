@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
 import com.laioffer.tinnews.model.Article;
@@ -13,6 +14,7 @@ import java.util.List;
 public interface ArticleDao {
 
     @Insert
+    @OnConflictStrategy
     void saveArticle(Article article);
 
     @Query("SELECT * FROM article")

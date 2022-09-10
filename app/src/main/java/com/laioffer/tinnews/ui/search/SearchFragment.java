@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import com.laioffer.tinnews.databinding.FragmentSearchBinding;
@@ -62,6 +63,7 @@ private FragmentSearchBinding binding;
             }
         });
 
+
         NewsRepository newsRepository = new NewsRepository();
         viewModel = new ViewModelProvider(this, new NewsViewModelFactory(newsRepository)).get(SearchViewModel.class);
 
@@ -71,6 +73,10 @@ private FragmentSearchBinding binding;
                 Log.d("SearchFragment", newsResponse.toString());
                 newsAdapter.setArticles(newsResponse.articles);
             }
+        });
+        newsAdapter.setItemCallback(article -> {
+            SearchFragmentDirections.ActionNavigationSearchToNavigationDetails direction = SearchFragmentDirections.actionNavigationSearchToNavigationDetails(article);
+            NavHostFragment.findNavController(SearchFragment.this).navigate(direction);
         });
     }
 }
